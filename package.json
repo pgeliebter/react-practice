@@ -17,8 +17,9 @@
   "homepage": "https://github.com/pgeliebter/react-practice#readme",
   "dependencies": {
     "axios": "^0.24.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {}
 }
