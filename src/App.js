@@ -10,11 +10,12 @@ function App() {
 		<div>
 			<img
 				onMouseOver={() => console.log('hovering!')}
-				src="https://www.fillmurray.com/200/100"
+				src="https://www.fillmurray.com/1000/1000"
 			/>
 			<br />
 			<br />
 			<button onClick={handleClick}>Click me</button>
+			<div onCopy={() => console.log('copying')}>boo</div>
 		</div>
 	)
 }
