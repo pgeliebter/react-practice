@@ -13,7 +13,7 @@ class App extends React.Component {
 		console.log('handled change function ran ')
 		this.setState({
 			todosDataState: todosData.map((ele) => {
-				if (ele.id == id) {
+				if (ele.id === id) {
 					ele.completed = !ele.completed
 				}
 				return ele
