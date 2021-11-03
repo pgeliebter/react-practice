@@ -20,15 +20,17 @@ class App extends React.Component {
 		})
 	}
 
-	componentDidUpdate() {
-		const newColor = randomcolor()
-		console.log(newColor)
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.count !== this.state.count) {
+			const newColor = randomcolor()
+			this.setState({ color: newColor })
+		}
 	}
 
 	render() {
 		return (
 			<div>
-				<h1>{this.state.count}</h1>
+				<h1 style={{ color: this.state.color }}>{this.state.count}</h1>
 				<button onClick={this.increment}>Increment!</button>
 			</div>
 		)
