@@ -13,6 +13,10 @@ class App extends React.Component {
 		this.setState((prevState) => {
 			const updatedTodos = prevState.todos.map((ele) => {
 				if (ele.id === id) {
+					return {
+						...ele,
+						completed: !ele.completed
+					}
 					ele.completed = !ele.completed
 				}
 				return ele
