@@ -1,41 +1,18 @@
-import React, { Component } from 'react'
-import Conditional from './Conditional'
+import React from 'react'
 
-class App extends Component {
-	constructor() {
-		super()
-		this.state = {
-			finishedLoading: false,
-			data: ''
-		}
-	}
+/*
+Challenge:
 
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState({
-				finishedLoading: true,
-				data: 'This is data returned from fake API'
-			})
-		}, 1500),
-			setTimeout(() => {
-				this.setState({
-					data: 'This is different data returned from fake API'
-				})
-			}, 3000)
-	}
+Given a stateless functional component:
+1. Follow the steps necessary to add state to it,
+2. Have state keep track of whether the user is logged in or not
+3. Add a button that logs the user in/out
+    a. extra challenge - make the button display "log in" if they're not logged in and "log out" if they are
+4. Display text that says "Logged in" if the user is logged in, or "Logged out" if they're not.
+*/
 
-	render() {
-		return (
-			<div>
-				{this.state.finishedLoading && (
-					<Conditional
-						finishedLoading={this.state.finishedLoading}
-						data={this.state.data}
-					/>
-				)}
-			</div>
-		)
-	}
+function App() {
+	return <div>Code goes here</div>
 }
 
 export default App
