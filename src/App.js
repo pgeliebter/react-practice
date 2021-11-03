@@ -7,12 +7,30 @@ class App extends React.Component {
 	constructor() {
 		super()
 		this.state = { todosDataState: todosData }
+		this.handleChange = this.handleChange.bind(this)
+	}
+	handleChange(id) {
+		console.log('handled change function ran ')
+		this.setState({
+			todosDataState: todosData.map((ele) => {
+				if (ele.id == id) {
+					ele.completed = !ele.completed
+				}
+				return ele
+			})
+		})
 	}
 	render() {
-		const cee = this.state.todosDataState.map((ele) => {
-			return <TodoItem todoItem={ele} key={ele.id} />
+		const todoItems = this.state.todosDataState.map((ele) => {
+			return (
+				<TodoItem
+					todoItem={ele}
+					key={ele.id}
+					handleChange={this.handleChange}
+				/>
+			)
 		})
-		return <div className="todo-list">{cee}</div>
+		return <div className="todo-list">{todoItems}</div>
 	}
 }
 export default App
