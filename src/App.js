@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 /*
 Challenge:
@@ -11,8 +12,33 @@ Given a stateless functional component:
 4. Display text that says "Logged in" if the user is logged in, or "Logged out" if they're not.
 */
 
-function App() {
-	return <div>Code goes here</div>
+class App extends React.Component {
+	constructor() {
+		super()
+		this.state = { loggedIn: false }
+		this.login = this.login.bind(this)
+	}
+	login() {
+		this.setState((prevState) => {
+			return { loggedIn: !prevState.loggedIn }
+		})
+	}
+	render() {
+		return (
+			<div>
+				<div>
+					{this.state.loggedIn ? (
+						'user is Logged in'
+					) : (
+						'user is not logged in'
+					)}
+				</div>
+				<button onClick={this.login}>
+					Log {!this.state.loggedIn ? 'In' : 'Out'}
+				</button>
+			</div>
+		)
+	}
 }
 
 export default App
