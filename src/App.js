@@ -17,7 +17,6 @@ class App extends React.Component {
 						...ele,
 						completed: !ele.completed
 					}
-					ele.completed = !ele.completed
 				}
 				return ele
 			})
