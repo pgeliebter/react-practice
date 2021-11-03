@@ -6,22 +6,22 @@ import todosData from './todosData'
 class App extends React.Component {
 	constructor() {
 		super()
-		this.state = { todosDataState: todosData }
+		this.state = { todos: todosData }
 		this.handleChange = this.handleChange.bind(this)
 	}
 	handleChange(id) {
-		console.log('handled change function ran ')
-		this.setState({
-			todosDataState: todosData.map((ele) => {
+		this.setState((prevState) => {
+			const updatedTodos = prevState.todos.map((ele) => {
 				if (ele.id === id) {
 					ele.completed = !ele.completed
 				}
 				return ele
 			})
+			return { todos: updatedTodos }
 		})
 	}
 	render() {
-		const todoItems = this.state.todosDataState.map((ele) => {
+		const todoItems = this.state.todos.map((ele) => {
 			return (
 				<TodoItem
 					todoItem={ele}
