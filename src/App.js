@@ -3,20 +3,26 @@ import './style.css'
 class App extends React.Component {
 	constructor() {
 		super()
-		this.state = { character: {} }
+		this.state = { character: {}, loading: false }
 	}
 	componentDidMount() {
+		this.setState(() => {
+			return { lodaing: true }
+		})
 		fetch('https://swapi.dev/api/people/1/')
 			.then((response) => response.json())
 			.then((data) => {
 				this.setState(() => {
-					return { character: data }
+					return { character: data, loading: false }
 				})
 			})
 	}
 
 	render() {
-		return <div>{this.state.character.name}</div>
+		const text = this.state.loading
+			? 'Loading..'
+			: this.state.character.name
+		return <div>{text}</div>
 	}
 }
 export default App
