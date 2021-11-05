@@ -10,13 +10,13 @@ class App extends React.Component {
 			.then((response) => response.json())
 			.then((data) => {
 				this.setState(() => {
-					return { data: data }
+					return { character: data }
 				})
 			})
 	}
 
 	render() {
-		return <div>Waiting...</div>
+		return <div>{this.state.character.name}</div>
 	}
 }
 export default App
