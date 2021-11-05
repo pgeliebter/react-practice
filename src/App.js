@@ -3,26 +3,26 @@ import './style.css'
 class App extends React.Component {
 	constructor() {
 		super()
-		this.state = { character: {}, loading: false }
+		this.state = {
+			firstName: ''
+		}
+		this.handleChange = this.handleChange.bind(this)
 	}
-	componentDidMount() {
-		this.setState(() => {
-			return { lodaing: true }
-		})
-		fetch('https://swapi.dev/api/people/1/')
-			.then((response) => response.json())
-			.then((data) => {
-				this.setState(() => {
-					return { character: data, loading: false }
-				})
-			})
+	handleChange(event) {
+		console.log(event)
+		this.setState({ firstName: event.target.value })
 	}
-
 	render() {
-		const text = this.state.loading
-			? 'Loading..'
-			: this.state.character.name
-		return <div>{text}</div>
+		return (
+			<div>
+				<input
+					type="text"
+					placeholder="First Name"
+					onChange={this.handleChange}
+				/>
+				<h2>{this.state.firstName}</h2>
+			</div>
+		)
 	}
 }
 export default App
