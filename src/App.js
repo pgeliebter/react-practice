@@ -24,7 +24,8 @@ class App extends Component {
 			lastName: '',
 			age: '',
 			gender: '',
-			dietaryRestrictions: ''
+			dietaryRestrictions: '',
+			location: ''
 		}
 		this.handleChange = this.handleChange.bind(this)
 	}
@@ -62,8 +63,15 @@ class App extends Component {
 						Female
 					</label>
 					<br />
-
-					{/* Create select box for location here */}
+					<select
+						onChange={this.handleChange}
+						value={this.state.location}
+						name="location"
+					>
+						<option value="NY">NY</option>
+						<option value="NJ">NJ</option>
+						<option value="CT">CT</option>
+					</select>
 					<br />
 
 					{/* Create check boxes for dietary restrictions here */}
@@ -76,7 +84,7 @@ class App extends Component {
 				<p>Your name: {/* First and last name here */}</p>
 				<p>Your age: {/* Age here */}</p>
 				<p>Your gender: {this.state.gender}</p>
-				<p>Your destination: {/* Destination here */}</p>
+				<p>Your destination: {this.state.location}</p>
 				<p>
 					Your dietary restrictions:
 					{/* Dietary restrictions here, comma separated */}
