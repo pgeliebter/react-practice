@@ -1,8 +1,13 @@
-import React from 'react'
+/**
+ * Create the boilerplate to get React to render something on the screen
+ * Render an <App /> component, which you'll need to create separately
+ */
+import React, { Component } from 'react'
 import './style.css'
-class App extends React.Component {
+
+class App extends Component {
 	render() {
-		return <div>Hi!</div>
+		return 'hi'
 	}
 }
 export default App
