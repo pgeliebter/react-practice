@@ -30,7 +30,6 @@ class App extends Component {
 		this.handleChange = this.handleChange.bind(this)
 	}
 	handleChange(event) {
-		console.log(event.target)
 		const { name, value, id, type } = event.target
 		this.setState({ [name]: value })
 	}
@@ -38,11 +37,23 @@ class App extends Component {
 		return (
 			<main>
 				<form>
-					<input placeholder="First Name" />
+					<input
+						placeholder="First Name"
+						name="firstName"
+						onChange={this.handleChange}
+					/>
 					<br />
-					<input placeholder="Last Name" />
+					<input
+						placeholder="Last Name"
+						name="lastName"
+						onChange={this.handleChange}
+					/>
 					<br />
-					<input placeholder="Age" />
+					<input
+						placeholder="Age"
+						name="age"
+						onChange={this.handleChange}
+					/>
 					<br />
 					<label>
 						<input
@@ -73,21 +84,48 @@ class App extends Component {
 						<option value="CT">CT</option>
 					</select>
 					<br />
-
+					<label>
+						<input
+							type="checkbox"
+							value="kosher"
+							name="dietaryRestriction"
+						/>
+						Kosher
+					</label>
+					<br />
+					<label>
+						<input
+							type="checkbox"
+							value="halal"
+							name="dietaryRestriction"
+						/>
+						Halal
+					</label>
+					<br />
+					<label>
+						<input
+							type="checkbox"
+							value="vegan"
+							name="dietaryRestriction"
+						/>
+						Vegan
+					</label>
 					{/* Create check boxes for dietary restrictions here */}
 					<br />
-
 					<button>Submit</button>
 				</form>
 				<hr />
 				<h2>Entered information:</h2>
-				<p>Your name: {/* First and last name here */}</p>
-				<p>Your age: {/* Age here */}</p>
+				<p>
+					Your name:
+					{`${this.state.firstName} ${this.state.lastName}`}
+				</p>
+				<p>Your age: {this.state.age}</p>
 				<p>Your gender: {this.state.gender}</p>
 				<p>Your destination: {this.state.location}</p>
 				<p>
 					Your dietary restrictions:
-					{/* Dietary restrictions here, comma separated */}
+					{this.state.dietaryRestrictions}
 				</p>
 			</main>
 		)
