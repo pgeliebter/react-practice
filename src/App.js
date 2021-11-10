@@ -1,43 +1,89 @@
-import React from 'react'
 import './style.css'
-class App extends React.Component {
+import React, { Component } from 'react'
+
+/**
+ * Challenge: Wire up the partially-finished travel form so that it works!
+ * Remember to use the concept of controlled forms
+ * https://reactjs.org/docs/forms.html
+ * 
+ * All information should be populating the text below the form in real-time
+ * as you're filling it out
+ * 
+ * This exercise is adapted from the V School curriculum on vanilla JS forms:
+ * https://coursework.vschool.io/travel-form/
+ * 
+ * All of our challenges and learning resources are open for the public
+ * to play around with and learn from at https://coursework.vschool.io
+ */
+
+class App extends Component {
 	constructor() {
 		super()
 		this.state = {
 			firstName: '',
-			lastName: ''
+			lastName: '',
+			age: '',
+			gender: '',
+			dietaryRestrictions: ''
 		}
 		this.handleChange = this.handleChange.bind(this)
 	}
 	handleChange(event) {
-		const { name, value, placeholder } = event.target
-		console.log(name, value, placeholder)
+		console.log(event.target)
+		const { name, value, id, type } = event.target
 		this.setState({ [name]: value })
 	}
 	render() {
 		return (
-			<div>
+			<main>
 				<form>
-					<input
-						type="text"
-						value={this.state.firstName}
-						name="firstName"
-						placeholder="First Name"
-						onChange={this.handleChange}
-					/>
+					<input placeholder="First Name" />
 					<br />
-					<input
-						type="text"
-						value={this.state.lastName}
-						name="lastName"
-						placeholder="Last Name"
-						onChange={this.handleChange}
-					/>
-					<h2>first name: {this.state.firstName}</h2>
-					<h2>last name: {this.state.lastName}</h2>
+					<input placeholder="Last Name" />
+					<br />
+					<input placeholder="Age" />
+					<br />
+					<label>
+						<input
+							type="radio"
+							value="Male"
+							name="gender"
+							onChange={this.handleChange}
+						/>
+						Male
+					</label>
+					<label>
+						<input
+							type="radio"
+							value="Female"
+							name="gender"
+							onChange={this.handleChange}
+						/>
+						Female
+					</label>
+					<br />
+
+					{/* Create select box for location here */}
+					<br />
+
+					{/* Create check boxes for dietary restrictions here */}
+					<br />
+
+					<button>Submit</button>
 				</form>
-			</div>
+				<hr />
+				<h2>Entered information:</h2>
+				<p>Your name: {/* First and last name here */}</p>
+				<p>Your age: {/* Age here */}</p>
+				<p>Your gender: {this.state.gender}</p>
+				<p>Your destination: {/* Destination here */}</p>
+				<p>
+					Your dietary restrictions:
+					{/* Dietary restrictions here, comma separated */}
+				</p>
+			</main>
 		)
 	}
 }
+
 export default App
